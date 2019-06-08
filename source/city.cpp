@@ -73,7 +73,7 @@ void City::evolve(int n)
 
 void City::save_to_file()
 {
-    ofstream* streams[2] = { new ofstream("green.txt"), new ofstream("red.txt") };
+    ofstream* streams[2] = { new ofstream("gp/green.txt"), new ofstream("gp/red.txt") };
 
     for (int i = 0; i < citizens_count; i++)
     {
@@ -88,9 +88,9 @@ void City::save_and_draw()
 {
     this->save_to_file();
 
-    ofstream script("skrypt.gp");
-    script << "plot \"green.txt\" with points pointtype 7,\"red.txt\" with points pointtype 7 \n"
+    ofstream script("gp/skrypt.gp");
+    script << "plot \"gp/green.txt\" with points pointtype 7,\"gp/red.txt\" with points pointtype 7 \n"
            << "pause -1 \"Wciśnij ENTER\n\"" << endl;
-    system("gnuplot skrypt.gp");
+    system("gnuplot gp/skrypt.gp");
 
 }

@@ -10,7 +10,7 @@ int main()
 {
     srand(time(0));
 
-    City warsaw(10000);
+    City warsaw(1000);
     warsaw.populate();
     for(int i = 0; i < 15; i++)
     {
