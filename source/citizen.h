@@ -1,8 +1,8 @@
 using namespace std;
 
-class City;
-
 const double max_dist = 1.0; // using const in order to avoid multiple declaration
+
+class City;
 
 class Citizen
 {

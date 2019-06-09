@@ -6,9 +6,9 @@ import random
 from math import cos, sin, pi
 
 
-population = 4000
-time = 15
-threshold = -5
+population = 1000
+time = 10
+threshold = 0
 
 
 def dist(c1, c2):

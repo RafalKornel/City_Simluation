@@ -32,7 +32,7 @@ Citizen::Citizen(double p)
 {
     x = generate() * map_size;
     y = generate() * map_size;
-    double roll = (double)(rand() % 100)/100;
+    double roll = generate();
     if (roll <= p) { club = 0; }
     else { club = 1; }
 }
