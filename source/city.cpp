@@ -16,7 +16,7 @@ City::City(int count)
 {
     citizens_count = count;
     citizens = (Citizen*)malloc(sizeof(Citizen) * count);
-    cout << sizeof(Citizen) * count << ' ' <<  sizeof(Citizen) << endl;
+    //cout << sizeof(Citizen) * count << ' ' <<  sizeof(Citizen) << endl;
 }
 
 City::City(int count, double p)
@@ -106,7 +106,7 @@ void City::save_and_draw()
 
 }
 
-void City::init_from_file(string filename)
+bool City::init_from_file(string filename)
 {
     ifstream file(filename);
     vector<Citizen> temp_citizens;
@@ -114,16 +114,20 @@ void City::init_from_file(string filename)
     double temp_y = -1;
     string temp_club = "_";
 
-    if (!file.is_open()) { cout << "Error opening file" << endl; }
+    if (!file.is_open()) 
+    { 
+        cout << "Error opening file" << endl; 
+        return false;
+    }
 
     while(file >> temp_x >> temp_y >> temp_club)
     {
-        cout << temp_x << '\t' << temp_y << '\t' << temp_club << endl;
+        //cout << temp_x << '\t' << temp_y << '\t' << temp_club << endl;
 
         if (temp_x < 0 || temp_y < 0 || temp_x > map_size || temp_y > map_size)
         {
             cout << "Wrong input!" << endl;
-            break;
+            return false;
         }
 
         if (temp_club != "Legia" & temp_club != "Polonia")
@@ -156,7 +160,8 @@ void City::init_from_file(string filename)
 
     file.close();
 
-    print_city();
+    //print_city();
+    return true;
 }
 
 void City::save(string filename, int res, int r)
@@ -164,5 +169,4 @@ void City::save(string filename, int res, int r)
     Image im(res, res);
     im.fill(citizens, citizens_count, r, map_size, map_size);
     im.save(filename);
-
 }

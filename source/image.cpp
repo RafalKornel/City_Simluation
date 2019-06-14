@@ -20,7 +20,6 @@ Image::Image(int width, int height)
 
 void Image::show_arr()
 {
-    
     for (int y = 0; y < h; y++)
     {
         cout << y << '\t';

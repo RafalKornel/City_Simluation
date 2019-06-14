@@ -1,7 +1,9 @@
 #include <string>
 using namespace std;
 
-const double map_size = 12.5; // using const in order to avoid multiple declaration
+//double map_size = 25; // using const in order to avoid multiple declaration
+
+#define map_size 25
 
 class Citizen;
 
@@ -9,7 +11,6 @@ class City
 {
     int citizens_count;
     double avg_happiness;
-    void populate(double percent);
     void print_city();
     
 
@@ -22,6 +23,7 @@ class City
         ~City() = default;
 
         void populate();
+        void populate(double percent);
         void evolve();
         void evolve(int steps);
         
@@ -29,5 +31,5 @@ class City
         void save(string filename, int res, int radius);
         void show_avg_happiness();
         void save_and_draw();
-        void init_from_file(string filename);
+        bool init_from_file(string filename);
 };
